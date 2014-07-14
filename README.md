@@ -1,4 +1,4 @@
-freeDom
+THe project freeDom
 =======
 
-Free Domain Object Module DSL, importers and generators
+Domain Object Model free for all to use with parsers from other data definition forms and generators of code
