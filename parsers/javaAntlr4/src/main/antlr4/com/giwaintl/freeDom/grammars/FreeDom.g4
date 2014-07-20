@@ -49,7 +49,7 @@ structDeclaration
    ;
 
 fieldDeclaration
-   : reqOrOpt qualifiedName fieldDim? Identifier fieldDefault? ';'
+   : reqOrOpt qualifiedName fieldDim? Identifier fieldDefault?
    //: FieldObligation qualifiedName
    ;
 

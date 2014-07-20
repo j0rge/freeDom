@@ -25,22 +25,22 @@ enum meh.blah.Shape { // fq enum
 namespace org.big.crowd
 
 struct Mixup {
-   !foo.bar.Klazz meh;
-   !int[4] id =123;
-   ~string[32] woo;
-   ~string[21] boo ="que pasa";
-   !datetime temporal=null;
+   !foo.bar.Klazz meh
+   !int[4] id =123
+   ~string[32] woo
+   ~string[21] boo ="que pasa"
+   !datetime temporal=null
 }
 
 struct one.two.three.GoThere {
-   ! int[2] id = -9876;
-   ! int[8] mask = +0x7FFFF;
-   ~ Mixup ref =null;
-   ~ decimal[18,2] moneys;
-   ! boolean yeah;
-   ~ char[3] threeChars="ABC";
-   ~ float[4]  length;
-   ! float[8] weight=8.33e-12;
-   ! float[8] height=-8.33e12;
+   ! int[2] id = -9876
+   ! int[8] mask = +0x7FFFF
+   ~ Mixup ref =null
+   ~ decimal[18,2] moneys
+   ! boolean yeah
+   ~ char[3] threeChars="ABC"
+   ~ float[4]  length
+   ! float[8] weight=8.33e-12
+   ! float[8] height=-8.33e12
 }
 
