@@ -1,0 +1,23 @@
+/*
+All the features for syntax tree testing
+*/
+
+namespace com.giwaintl.freeDom.samples
+
+enum Colors {
+    Red, Gree, Blue // just the base colors
+}
+
+/*scaladoc
+  The <b>Locality</b> product
+*/
+/*rubydoc
+  The +Locality+ product
+*/
+/*
+  The Locality product - plaintext
+*/
+struct Locality {
+    +int[8] id
+    +string[8] name default="One\nstring\twith\u0020escapes"
+}
