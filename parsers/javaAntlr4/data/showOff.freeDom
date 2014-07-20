@@ -1,0 +1,42 @@
+/*
+    Some comments
+    Not docs! We do not provide docs feature here because it is impossible to accomodate all possible platforms
+    for specific platform documentation formats - this is a much bigger project than the whole this one.
+    Comments can be used as a documentation, or better yet, document it elsewhere.
+
+    At best, we could build a documentation tool like javadoc or rdoc or yard which would generate pages
+    from common mark-up.
+*/
+
+ver "123.23.456"
+
+include com.giwas.dom.ExternalKlazz
+
+//namespace com.giwaintl.dom
+
+enum Colors {
+  RED, WHITE, Blue
+}
+
+enum meh.blah.Shape { // fq enum
+    SQUARE, ROUND, HOLE, PEG // not exactly a shape but you got the idea
+}
+
+struct Mixup {
+   !foo.bar.Klazz meh;
+   !int[4] id =123;
+   ~string[32] woo;
+   ~string[21] boo ="que pasa";
+   !datetime temporal=null;
+}
+
+struct one.two.three.GoThere {
+   ! int[2] id = 9876;
+   ~ Mixup ref =null;
+   ~ decimal[18,2] moneys;
+   ! boolean yeah;
+   ~ char[3] threeChars="ABC";
+   ~ float[4]  length;
+   ! float[8] weight=8.33e-12;
+}
+
