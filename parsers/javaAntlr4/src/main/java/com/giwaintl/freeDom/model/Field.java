@@ -10,7 +10,7 @@ public class Field<T> {
     private T value;
     private Fqn name;
 
-    private FreedomType type;
+    private FreeDomType type;
 
     public Fqn getName() {
         return name;
