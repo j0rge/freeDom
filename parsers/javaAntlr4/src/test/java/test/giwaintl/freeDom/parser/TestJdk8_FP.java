@@ -17,7 +17,7 @@ import static org.junit.Assert.assertThat;
 public class TestJdk8_FP {
     private static interface Tester {void testIt();} // single test case
 
-    // lambda interfaces
+    // lambda interfaces: one does something to a number and the string and returns the number, the other one returns a string
     private interface Lengther<T extends Number> { T apply(T i, CharSequence what); }
     private interface Speller<T extends Number> { String apply(T i, CharSequence what); }
 
@@ -25,6 +25,8 @@ public class TestJdk8_FP {
      * Utility method to extract a textual of interfaces implemented by a class of the passed object, useful to debug lambdas.
      * Notice the usage of J8 functional features: this one-liner gets list of interfaces, transforms them into simple class names
      * and builds a comma-delimited list, in one return operator.
+     * To debug lambdas, need a list of interfaces to figure out which lambda was applied. If you log the class.name, you will see the anonymous numbered $$Lambda
+     * in the logs and you won't have any idea which lambda was it. Logging interfaces will show the lambda interface names, that's much more helpful.
      *
      * That's what you get in the log:
      * <pre>
@@ -41,7 +43,7 @@ public class TestJdk8_FP {
         ).stream().flatMap(i -> of(i.getSimpleName())).collect(joining(", ", ">>>", "<<<"));
     }
 
-    // lambda tester
+    // lambda tester for Lengther lambdas
     private static class LengtherTestCase<T extends Number> implements Tester {
         final Lengther<T> lengther; final T num; final String str; final T expected;
 
@@ -51,15 +53,13 @@ public class TestJdk8_FP {
 
         public void testIt() {
             T result = lengther.apply(num, str);
-            // need list of interfaces to figure out which lambda was applied. Just class.name shows only numbered $$Lambda
-            // and you won't have any idea which one
             L.info("Applied {} to {} and \"{}\", result: {}", interfacesTextual(lengther),
                 num, str, result);
             assertThat(result, is(expected));
         }
     }
 
-    // another lambda tester
+    // another lambda tester for Speller lambdas
     private static class SpellerTestCase<T extends Number> implements Tester {
         final Speller<T> speller; final T num; final String str; final String expected;
 
