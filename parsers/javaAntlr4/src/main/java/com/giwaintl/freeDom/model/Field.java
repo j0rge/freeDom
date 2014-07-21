@@ -5,7 +5,7 @@ package com.giwaintl.freeDom.model;
  */
 public class Field<T> {
     private boolean isRequired;
-    private boolean isPrim; // primitive
+    private boolean isPrim; // the field has a "primitive" type, not in Java sense but in FreeDOM sense.
 
     private T value;
     private Fqn name;
