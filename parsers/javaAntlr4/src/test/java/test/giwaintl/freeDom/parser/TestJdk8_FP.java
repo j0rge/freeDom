@@ -14,7 +14,7 @@ import static java.util.stream.Stream.of;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class TestStub {
+public class TestJdk8_FP {
     private static interface Tester {void testIt();} // single test case
 
     // lambda interfaces
@@ -74,7 +74,7 @@ public class TestStub {
         }
     }
 
-    private static Logger L = LoggerFactory.getLogger(TestStub.class);
+    private static Logger L = LoggerFactory.getLogger(TestJdk8_FP.class);
 
     // a couple of stubs
     @Before public void init() throws Exception { } @After public void destroy() throws Exception { }
