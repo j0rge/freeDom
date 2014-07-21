@@ -103,7 +103,7 @@ public class TestJdk8_FP {
             new LengtherTestCase<>(mulLen, 3, "defg", 12),
             new LengtherTestCase<>(fMulLen, 9.0f, "uvwxyz", 54.0f),
             new SpellerTestCase<>(speller, 12.345, "FedEx", "received via FedEx: 12.345, that's it")
-        ).forEach(Tester::testIt);
+        ).forEach(Tester::testIt);// Passed a naked method reference. Wow, as good as any FP platform, you name it
 
     }
 }
