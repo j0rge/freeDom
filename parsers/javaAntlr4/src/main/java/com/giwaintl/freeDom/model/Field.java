@@ -1,5 +1,7 @@
 package com.giwaintl.freeDom.model;
 
+import com.giwaintl.freeDom.model.type.FreeDomType;
+
 /**
  * @author Jorge U
  */

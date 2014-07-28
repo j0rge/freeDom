@@ -4,7 +4,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 
@@ -13,6 +12,7 @@ import static java.util.stream.Collectors.joining;
 import static java.util.stream.Stream.of;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.slf4j.LoggerFactory.getLogger;
 
 public class TestJdk8_FP {
     private static interface Tester {void testIt();} // single test case
@@ -74,7 +74,7 @@ public class TestJdk8_FP {
         }
     }
 
-    private static Logger L = LoggerFactory.getLogger(TestJdk8_FP.class);
+    private static final Logger L = getLogger(TestJdk8_FP.class);
 
     // a couple of stubs
     @Before public void init() throws Exception { } @After public void destroy() throws Exception { }

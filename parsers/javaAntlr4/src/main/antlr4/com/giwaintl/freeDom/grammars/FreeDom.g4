@@ -22,8 +22,8 @@ namespaceDeclaration
     'namespace' qualifiedName
     ;
 
-includeDeclaration
-    :   'include' qualifiedName ('.' '*')?
+includeDeclaration  // filename, includes everything in it
+    :   'include' StringLiteral qualifiedName // ('.' '*')?
     ;
 
 // Promote semantic  versioning

@@ -1,4 +1,4 @@
-package com.giwaintl.freeDom.model;
+package com.giwaintl.freeDom.model.type;
 
 /**
  * Marker interface - standard type
