@@ -1,0 +1,2 @@
+echo "Bouncing the YARD server"
+ssh admin@ruby.gem.host1 'export PATH="/opt/ruby/default/bin:/usr/sbin:${PATH}";runRestartRubyDaemon.rb yard 8888 start'

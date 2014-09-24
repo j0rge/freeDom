@@ -1,0 +1,9 @@
+# http://xubuntugeek.blogspot.com/2011/12/add-items-to-xfce-applications-menu.html
+# cp to /usr/share/applications/
+[Desktop Entry]
+Version=13.1.4
+Type=Application
+Name=idea
+Exec=/opt/idea/default/bin/idea.sh
+Icon=/opt/idea/default/bin/idea.png
+Categories=Development

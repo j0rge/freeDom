@@ -1,0 +1,2 @@
+echo "Bouncing the Gem server"
+ssh admin@ruby.gem.host 'export PATH="/opt/ruby/default/bin:/usr/sbin:${PATH}";runRestartRubyDaemon.rb gem 8080 start'

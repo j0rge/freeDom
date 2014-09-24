@@ -28,6 +28,15 @@
                 <role>SDT</role>
             </roles>
         </developer>
+        <developer>
+            <id>as</id>
+            <name>Azim S</name>
+            <organization>Giwa International</organization>
+            <roles>
+                <role>Programmer</role>
+                <role>SDT</role>
+            </roles>
+        </developer>
     </developers>
     <build>
         <plugins>

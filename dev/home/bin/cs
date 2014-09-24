@@ -1,0 +1,2 @@
+# Uniform checksum script 
+sha512sum - | cut -f1 -d" " | ruby -ne 'print $_.chomp.reverse unless $_.empty?' | md5sum - | cut -f1 -d" " | ruby -ne 'print $_.chomp.reverse unless $_.empty?'

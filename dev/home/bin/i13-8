@@ -1,0 +1,1 @@
+IDEA_JDK="/opt/jdk/8/default" nohup /opt/idea/13.1-135.475/bin/idea.sh > /opt/idea/13.1-135.475/logs/out.txt 2>/opt/idea/13.1-135.475/logs/err.txt &

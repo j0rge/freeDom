@@ -1,0 +1,1 @@
+mysql -u mysql -h mysql.host001 --password="`cat ~/.mysql.secret`" -D pmart $@
