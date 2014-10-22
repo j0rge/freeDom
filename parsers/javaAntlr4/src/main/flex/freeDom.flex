@@ -1,0 +1,4 @@
+// FreeDom lexer
+
+%%
+%class FreeDomLexer
