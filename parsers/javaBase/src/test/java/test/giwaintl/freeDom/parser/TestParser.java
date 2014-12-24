@@ -20,6 +20,7 @@ import org.slf4j.Logger;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.util.List;
 
 import static com.google.common.base.Joiner.on;
 import static java.lang.String.format;
@@ -29,6 +30,22 @@ import static org.slf4j.LoggerFactory.getLogger;
  */
 public class TestParser {
     private static final Logger L = getLogger(TestParser.class);
+
+    private static String qnCtxsToString(List<FreeDomParser.QualifiedNameContext> nameCtxs) {
+        StringBuilder sb = new StringBuilder(2048);
+        for (FreeDomParser.QualifiedNameContext ctx : nameCtxs) {
+            sb.append(ctx.Identifier()).append(':');
+        }
+        return sb.toString();
+    }
+
+    private static String litCtxsToString(List<FreeDomParser.LiteralContext> litCtxs) {
+        StringBuilder sb = new StringBuilder(2048);
+        for (FreeDomParser.LiteralContext ctx : litCtxs) {
+            sb.append(ctx.toStringTree()).append(':');
+        }
+        return sb.toString();
+    }
 
     private static class TestParseHearer implements ParseTreeListener {
 
@@ -50,6 +67,42 @@ public class TestParser {
     }
 
     private static class ParserFreeDomListener extends FreeDomBaseListener {
+        @Override public void enterMappingTerm(@NotNull FreeDomParser.MappingTermContext ctx) {
+            L.info(format("**** Mapping Term BEGIN d=%d, <<<%s>>>%n", ctx.depth(), litCtxsToString(ctx.literal())));
+        }
+
+        @Override public void exitMappingTerm(@NotNull FreeDomParser.MappingTermContext ctx) {
+            L.info(format("**** Mapping Term End d=%d, <<<%s>>>%n", ctx.depth(), ctx.literal()));
+        }
+
+        @Override public void enterMappingDeclaration(@NotNull FreeDomParser.MappingDeclarationContext ctx) {
+            L.info(format("**** Mapping Dcl BEGIN d=%d, <<<%s>>>%n", ctx.depth(), qnCtxsToString(ctx.qualifiedName())));
+        }
+
+        @Override public void exitMappingDeclaration(@NotNull FreeDomParser.MappingDeclarationContext ctx) {
+            L.info(format("**** Mapping Dcl END d=%d, <<<%s>>>%n", ctx.depth(), ctx.qualifiedName()));
+        }
+
+        @Override public void exitStructDeclaration(@NotNull FreeDomParser.StructDeclarationContext ctx) {
+            super.exitStructDeclaration(ctx);
+        }
+
+        @Override public void enterFieldDim(@NotNull FreeDomParser.FieldDimContext ctx) {
+            super.enterFieldDim(ctx);
+        }
+
+        @Override public void exitFieldDim(@NotNull FreeDomParser.FieldDimContext ctx) {
+            super.exitFieldDim(ctx);
+        }
+
+        @Override public void enterBitmapDeclaration(@NotNull FreeDomParser.BitmapDeclarationContext ctx) {
+            L.info(format("**** Bitmap Dcl BEGIN d=%d, <<<%s>>>%n", ctx.depth(), ctx.qualifiedName()));
+        }
+
+        @Override public void exitBitmapDeclaration(@NotNull FreeDomParser.BitmapDeclarationContext ctx) {
+            super.exitBitmapDeclaration(ctx);
+        }
+
         @Override public void enterEnumDeclaration(@NotNull FreeDomParser.EnumDeclarationContext ctx) {
             L.info(format("**** Enum d=%d, <<<%s>>>%n", ctx.depth(), ctx.qualifiedName().Identifier()));
         }

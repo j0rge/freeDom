@@ -10,12 +10,12 @@ import java.util.List;
 /**
  * @author Jorge U
  */
-public class DomEnum extends DomObject {
+public class DomEnumType extends DomObjectType {
     private String[] ordToWord;
     private LinkedHashMap<String, Integer> wordToOrd;
 
 
-    private DomEnum(Fqn name) {
+    private DomEnumType(Fqn name) {
         super(name);
     }
 
@@ -48,9 +48,9 @@ public class DomEnum extends DomObject {
     }
 
     // list not set, originally ordered
-    public static DomEnum buildFrom(final Fqn fqn, final List<String> names) {
+    public static DomEnumType buildFrom(final Fqn fqn, final List<String> names) {
         if ((new HashSet<>(names).size()) != names.size()) throw new IllegalArgumentException("Duplicate names in ");
-        DomEnum result = new DomEnum(fqn);
+        DomEnumType result = new DomEnumType(fqn);
         result.registerNames(names);
         return result;
     }

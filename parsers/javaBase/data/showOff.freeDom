@@ -10,9 +10,9 @@
 
 ver "123.23.456"
 
-include com.giwas.dom.ExternalKlazz
+include "offShow"
 
-namespace com.giwaintl.dom
+namespace com.giwaintl.dom.ns.a
 
 enum Colors {
   RED, WHITE, Blue
@@ -22,10 +22,24 @@ enum meh.blah.Shape { // fq enum
     SQUARE, ROUND, HOLE, PEG // not exactly a shape but you got the idea
 }
 
-namespace org.big.crowd
+bitmap SetOfStrings (string) {
+// 0 is illegal index for a bitmap
+    1 -> "Zero"
+    2 -> "One"
+    3 -> "Four"
+    4 -> "Eight"
+    5 -> "Sixteen"
+}
+
+map StringToDecimal (string -> decimal[18.2]) {
+   "oneAndAHalf" -> 1.5
+   "almostPi" -> 3.14
+}
+
+namespace com.giwaintl.dom.ns.b
 
 struct Mixup {
-   !foo.bar.Klazz meh
+   !com.giwaintl.dom.ns.b.Imported meh
    !int[4] id =123
    ~string[32] woo
    ~string[21] boo ="que pasa"

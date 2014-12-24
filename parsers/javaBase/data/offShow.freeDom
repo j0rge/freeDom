@@ -1,0 +1,10 @@
+/*
+To be included
+*/
+
+namespace com.giwaintl.dom.ns.c
+
+struct Imported {
+   !int[4] id
+   ~string[33] text
+}

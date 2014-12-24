@@ -48,7 +48,7 @@
                         <descriptor>src/assemble/one-jar.xml</descriptor>
                     </descriptors>
                     <descriptorRefs>
-                           <descriptorRef>jar-with-dependencies</descriptorRef>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
                     <archive>
                         <manifest>
@@ -137,11 +137,25 @@
                 <version>2.12.2</version>
             </plugin>
 
-            <plugin>
+            <!-- JFlex has not impressed -->
+            <!--plugin>
                 <groupId>de.jflex</groupId>
                 <artifactId>jflex-maven-plugin</artifactId>
                 <version>1.6.0</version>
-            </plugin>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>src/main/java</outputDirectory>
+                            <lexDefinitions>
+                                <lexDefinition>src/main/flex</lexDefinition>
+                            </lexDefinitions>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin-->
         </plugins>
     </build>
     <properties>
@@ -215,11 +229,12 @@
             <artifactId>joda-time</artifactId>
             <version>2.4</version>
         </dependency>
-        <dependency>
+        <!-- JFlex has not impressed, not good at all -->
+        <!--dependency>
             <groupId>de.jflex</groupId>
             <artifactId>jflex</artifactId>
             <version>1.6.0</version>
-        </dependency>
+        </dependency-->
 
     </dependencies>
 </project>

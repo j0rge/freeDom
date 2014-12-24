@@ -2,6 +2,8 @@ package com.giwaintl.freeDom.model;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
+import javax.annotation.Nullable;
+
 /**
  * @author Jorge U
  */
@@ -16,7 +18,7 @@ public class FreeformVersion implements AnyVersion {
         return version;
     }
 
-    @Override public int compareTo(Object other) {
+    @Override public int compareTo(@Nullable Object other) {
         if(! (other instanceof String)) throw new IllegalArgumentException("Not a string: " + ReflectionToStringBuilder.reflectionToString(other));
         return version.compareTo((String) other);
     }

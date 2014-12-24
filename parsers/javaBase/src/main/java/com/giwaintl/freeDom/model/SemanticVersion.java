@@ -3,6 +3,7 @@ package com.giwaintl.freeDom.model;
 import static java.lang.String.valueOf;
 
 /**
+ * <p>Semantic version format: Major.Minor.Update</p>
  * @author Jorge U
  */
 public class SemanticVersion extends FreeformVersion {

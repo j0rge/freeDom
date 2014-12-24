@@ -1,7 +1,7 @@
 package test.giwaintl.freeDom.parser;
 
 import com.giwaintl.freeDom.model.Fqn;
-import com.giwaintl.freeDom.model.type.DomEnum;
+import com.giwaintl.freeDom.model.type.DomEnumType;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,7 +22,7 @@ public class TestModel {
     @Before public void init() throws Exception { } @After public void destroy() throws Exception { }
 
     @Test public void testEnums() {
-        DomEnum de = DomEnum.buildFrom(new Fqn("com", "blah", "meh", "Colors"), asList("Red", "White", "Blue"));
+        DomEnumType de = DomEnumType.buildFrom(new Fqn("com", "blah", "meh", "Colors"), asList("Red", "White", "Blue"));
         assertThat(de.getName().getKey(), is("com.blah.meh.Colors"));
         assertThat(de.name(0), is("Red"));
         assertThat(de.name(1), is("White"));

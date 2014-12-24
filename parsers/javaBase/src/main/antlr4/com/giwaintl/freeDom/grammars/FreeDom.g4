@@ -15,7 +15,7 @@ modelHeader
 
 modelBody
     :
-     (enumDeclaration | namespaceDeclaration | structDeclaration)+
+     (enumDeclaration | namespaceDeclaration | structDeclaration | mappingDeclaration | bitmapDeclaration)+
      ;
 namespaceDeclaration
     :
@@ -23,10 +23,10 @@ namespaceDeclaration
     ;
 
 includeDeclaration  // filename, includes everything in it
-    :   'include' StringLiteral qualifiedName // ('.' '*')?
+    :   'include' StringLiteral
     ;
 
-// Promote semantic  versioning
+// FIXME: Promote semantic  versioning in future, leave free format for now
 versionDeclaration
     :   'ver' StringLiteral
     ;
@@ -47,6 +47,14 @@ enumConstant
 structDeclaration
    : STRUCT qualifiedName LBRACE fieldDeclaration+ RBRACE
    ;
+
+bitmapDeclaration
+    : 'bitmap' qualifiedName '(' qualifiedName fieldDim? ')' LBRACE
+    mappingTerm+ RBRACE;
+
+mappingDeclaration
+    : 'map' qualifiedName '(' qualifiedName fieldDim? MappingDir qualifiedName fieldDim? ')' LBRACE
+    mappingTerm+ RBRACE;
 
 fieldDeclaration
    : reqOrOpt qualifiedName fieldDim? Identifier fieldDefault?
@@ -73,7 +81,13 @@ fieldDim
    : LBRACK IntegerLiteral (',' IntegerLiteral)? RBRACK
    ;
 
-/*stdDataType
+mappingTerm
+    :
+    literal MappingDir literal;
+
+/*
+Strangely, this behaves like a poison pill, causes strange errors resulting in parse failure
+stdDataType
     : BOOLEAN
     | CHAR
     | STRING
@@ -84,9 +98,11 @@ fieldDim
     | DECIMAL
     ;
 */
+
 fieldDefault
     : ASSIGN signPrefix? literal
     ;
+
 // LEXER
 
 FieldObligation
@@ -94,7 +110,9 @@ FieldObligation
    | TILDE
    ;
 
+MappingDir : '->';
 /*
+Strangely, this behaves like a poison pill, causes strange errors resulting in parse failure
 BOOLEAN       : 'boolean';
 CHAR          : 'char';
 FLOAT         : 'float';
